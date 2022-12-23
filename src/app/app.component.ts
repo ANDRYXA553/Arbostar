@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { LoginDialogService } from "./services/login-dialog.service";
 import { LocalStorageService } from "./services/local-storage.service";
 import { LOGIN_FORM_STORAGE_KEY } from "./constants";
@@ -6,7 +6,8 @@ import { LOGIN_FORM_STORAGE_KEY } from "./constants";
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AppComponent implements OnInit {
   constructor(
