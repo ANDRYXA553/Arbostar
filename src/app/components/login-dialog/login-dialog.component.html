@@ -1,0 +1,24 @@
+<mat-dialog-content>
+  <form [formGroup]="loginForm">
+
+    <mat-form-field [appearance]="'outline'" color="accent">
+      <mat-label>Email</mat-label>
+      <input formControlName="email" matInput/>
+      <mat-error *ngIf="loginForm.get('email')?.errors?.['required']">This field is required</mat-error>
+      <mat-error *ngIf="loginForm.get('email')?.errors?.['email']">Please enter valid email</mat-error>
+    </mat-form-field>
+
+    <mat-form-field [appearance]="'outline'" color="accent">
+      <mat-label>Password</mat-label>
+      <input formControlName="password" type="password" matInput/>
+      <mat-error *ngIf="loginForm.get('password')?.errors?.['required']">This field is required</mat-error>
+      <mat-error *ngIf="loginForm.get('password')?.errors?.['minlength']">Password should be longer than 8 symbols
+      </mat-error>
+    </mat-form-field>
+
+  </form>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <button mat-raised-button color="accent" (click)="submitForm()" type="submit">Log-in</button>
+</mat-dialog-actions>
